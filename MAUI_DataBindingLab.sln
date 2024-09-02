@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LAB09_MAUI_DataBindingLab", "LAB09_MAUI_DataBindingLab.csproj", "{C126CE37-D111-4140-8532-FB40E5098CBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAUI_DataBindingLab", "MAUI_DataBindingLab.csproj", "{C126CE37-D111-4140-8532-FB40E5098CBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
