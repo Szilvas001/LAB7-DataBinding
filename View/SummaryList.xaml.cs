@@ -1,5 +1,6 @@
 using LAB09_MAUI_DataBindingLab.Model;
 using LAB09_MAUI_DataBindingLab.ViewModel;
+using Microsoft.Maui.Controls;
 using System.ComponentModel;
 
 namespace LAB09_MAUI_DataBindingLab.View
@@ -7,6 +8,7 @@ namespace LAB09_MAUI_DataBindingLab.View
     public sealed partial class SummaryList : ContentView
     {
         public SummaryListViewModel List { get; private set; }
+
         public SummaryList()
         {
             this.BindingContext = this;
