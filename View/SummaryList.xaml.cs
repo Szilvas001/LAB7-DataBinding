@@ -1,7 +1,6 @@
 using LAB09_MAUI_DataBindingLab.Model;
 using LAB09_MAUI_DataBindingLab.ViewModel;
 using Microsoft.Maui.Controls;
-using System.ComponentModel;
 
 namespace LAB09_MAUI_DataBindingLab.View
 {
