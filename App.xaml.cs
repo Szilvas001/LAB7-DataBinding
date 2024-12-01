@@ -1,11 +1,11 @@
-﻿namespace LAB09_MAUI_DataBindingLab;
-
-public partial class App : Application
+﻿namespace LAB09_MAUI_DataBindingLab
 {
-	public App()
-	{
-		InitializeComponent();
-
-		MainPage = new MainPage();
-	}
+    public partial class App : Application
+    {
+        public App()
+        {
+            InitializeComponent();
+            MainPage = new MainPage();
+        }
+    }
 }
