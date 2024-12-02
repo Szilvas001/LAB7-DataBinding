@@ -11,5 +11,18 @@
 
     <StackLayout MinimumWidthRequest="300" BackgroundColor="WhiteSmoke">
         <Label Text="List of transactions:" TextColor="Black"/>
+        <CollectionView ItemsSource="{Binding List}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Black" Padding="5" Margin="5">
+                        <StackLayout>
+                            <Label Text="{Binding Summary}" TextColor="Black"/>
+                            <Label Text="{Binding IsLuxury}" TextColor="Black"/>
+                            <BoxView Color="{Binding IsExpense, Converter={StaticResource IsExpenseConverter}}"/>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </StackLayout>
 </ContentView>
