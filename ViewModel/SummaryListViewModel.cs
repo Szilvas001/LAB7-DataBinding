@@ -1,30 +1,44 @@
-﻿
 using LAB09_MAUI_DataBindingLab.Model;
-using System.Collections.ObjectModel;
-
+using System.ComponentModel;
 
 namespace LAB09_MAUI_DataBindingLab.ViewModel
 {
-    public class SummaryListViewModel : ObservableCollection<SummaryListItemViewModel>
+    public class SummaryListItemViewModel : ObservableObjectBase
     {
-        public SummaryListViewModel(TransactionList model)
+        public Transaction Model { get; private set; }
+
+        public SummaryListItemViewModel(Transaction model)
         {
-            model.CollectionChanged += Model_CollectionChanged;
+            Model = model;
+            model.PropertyChanged += Model_PropertyChanged;
         }
 
-        private void Model_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        public SummaryListItemViewModel()
         {
-            // Add new view models for the appearing items and remove view model
-            //  belonging to disappearing items.
-            if (e.NewItems != null)
-                foreach (Transaction item in e.NewItems)
-                    this.Add(new SummaryListItemViewModel(item));
-            if (e.OldItems != null)
+        }
+
+        private void Model_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(Model.Description) ||
+                e.PropertyName == nameof(Model.Value))
             {
-                var toRemove = this.Items.Where(i => e.OldItems.Contains(i.Model));
-                foreach (var vm in toRemove)
-                    this.Remove(vm);
+                Notify(nameof(Summary));
+            }
+            if (e.PropertyName == nameof(Model.Value))
+            {
+                Notify(nameof(IsExpense));
+            }
+            if (e.PropertyName == nameof(Model.Category))
+            {
+                Notify(nameof(Summary));
+                Notify(nameof(IsLuxury));
             }
         }
+
+        public string Summary => $"{Model.Description} ({Model.Category.Name}): {Math.Abs(Model.Value)}";
+
+        public bool IsExpense => Model.Value < 0;
+
+        public bool IsLuxury => Model.Category.IsLuxury;
     }
 }
