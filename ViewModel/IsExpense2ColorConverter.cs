@@ -1,4 +1,7 @@
-﻿using System.Globalization;
+using System;
+using System.Globalization;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Graphics;
 
 namespace LAB09_MAUI_DataBindingLab.ViewModel
 {
@@ -9,6 +12,7 @@ namespace LAB09_MAUI_DataBindingLab.ViewModel
             bool isExpense = (bool)value;
             return isExpense ? Colors.Red : Colors.Green;
         }
+
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
